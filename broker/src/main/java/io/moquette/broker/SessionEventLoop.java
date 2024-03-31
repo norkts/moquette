@@ -49,7 +49,7 @@ final class SessionEventLoop extends Thread {
                 task.get();
             } catch (Throwable th) {
                 LOG.warn("SessionEventLoop {} reached exception in processing command", Thread.currentThread().getName(), th);
-                throw new RuntimeException(th);
+//                throw new RuntimeException(th);
             }
         }
     }
