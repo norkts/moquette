@@ -190,6 +190,9 @@ class Session {
     }
 
     public void closeImmediately() {
+        if(mqttConnection == null){
+            return;
+        }
         mqttConnection.dropConnection();
         mqttConnection = null;
         status.set(SessionStatus.DISCONNECTED);

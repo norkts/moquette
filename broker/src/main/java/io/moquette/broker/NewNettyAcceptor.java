@@ -273,7 +273,7 @@ class NewNettyAcceptor {
         if (writeFlushMillis > IMMEDIATE_BUFFER_FLUSH) {
             pipeline.addLast("autoflush", new AutoFlushHandler(writeFlushMillis, TimeUnit.MILLISECONDS));
         }
-        pipeline.addLast("decoder", new MqttDecoder(maxBytesInMessage));
+        pipeline.addLast("decoder", new MqttDecoder(maxBytesInMessage,128));
         pipeline.addLast("encoder", MqttEncoder.INSTANCE);
         pipeline.addLast("metrics", new MessageMetricsHandler(metricsCollector));
         pipeline.addLast("messageLogger", new MQTTMessageLogger());
